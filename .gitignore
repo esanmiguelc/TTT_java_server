@@ -1,8 +1,8 @@
-# Created by https://www.gitignore.io
+ Created by https://www.gitignore.io
 
 ### Intellij ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
-
+gradle-wrapper.jar
 .DS_Store
 *.iml
 
@@ -68,7 +68,6 @@ gradle-app.setting
 .mtj.tmp/
 
 # Package Files #
-*.jar
 *.war
 *.ear
 
