@@ -1,5 +1,6 @@
 apply plugin: 'java'
 apply plugin: 'idea'
+apply plugin: 'application'
 
 sourceCompatibility = 1.8
 version = '1.0'
@@ -7,6 +8,14 @@ version = '1.0'
 repositories {
     mavenCentral()
 }
+
+mainClassName = "tttjava.TTTJava"
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile fileTree(dir: 'lib', include: '*.jar')
+}
+
 
 sourceSets {
     main {
@@ -19,18 +28,16 @@ sourceSets {
             srcDir 'test'
         }
     }
+
 }
 
 jar {
     manifest {
-        attributes "Implementation-Title": "TicTacToeWeb",
+        attributes ('Implementation-Title': "TicTacToeWeb",
                 'Implementation-Version': version,
                 'Main-Class': 'tttjava.TTTJava',
                 'Class-Path': System.getProperty("user.dir") + '/lib/java-server-1.0.jar', System.getProperty("user.dir") + 'lib/tictactoe-1.0.jar'
+        )
     }
 }
 
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
-    compile fileTree(dir: 'lib', include: '*.jar')
-}
