@@ -36,7 +36,6 @@ public class GameSetupResponderTest {
                 "\r\n" +
                 "firstPlayer=1&secondPlayer=1\r\n";
         HttpRequest request = new HttpRequestParser(nonParsedRequest).createRequest();
-        System.out.println(request.getParams());
         String[] args = new String[0];
         TicTacToeBoard ticTacToeBoard = new TicTacToeBoard(3);
         Participant player = new ParticipantFactory(Integer.valueOf(request.getParams().get("firstPlayer")),
@@ -54,7 +53,6 @@ public class GameSetupResponderTest {
                 "\r\n" +
                 "firstPlayer=1&secondPlayer=2\r\n";
         HttpRequest request = new HttpRequestParser(nonParsedRequest).createRequest();
-        System.out.println(request.getParams());
         String[] args = new String[0];
         TicTacToeBoard ticTacToeBoard = new TicTacToeBoard(3);
         Participant player = new ParticipantFactory(Integer.valueOf(request.getParams().get("secondPlayer")),

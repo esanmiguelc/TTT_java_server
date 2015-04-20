@@ -68,16 +68,16 @@ public class GameResponder implements Responder {
                 "  <body class=\"container\">\n" +
                 "    <h1 class=\"text-center\">Welcome To a game of TicTacToe</h1>\n";
         GameState state = CurrentGame.getInstance().getState();
-        for (int position : state.availableMoves()) {
+        for (int position = 0; position < 9; position++) {
             html += "<div class=\"col-xs-4 slot slot-" + position + "\">\n";
-            state.positionAvailable(position);
-            if (!state.positionAvailable(position)) {
-                html += "<span>" + state.getParticipantAtPosition(position).getMark() + "</span>";
-            } else {
+            if (state.positionAvailable(position)) {
                 html += "<form action=\"/make_move\" method=\"POST\">\n" +
                         "    <input type=\"hidden\" name=\"move\" value=\"" + position + "\">\n" +
                         "    <button type=\"submit\"></button>\n" +
                         "</form>";
+            } else {
+                String mark = state.getParticipantAtPosition(position).getMark();
+                html += "<span>" + mark + "</span>";
             }
             html += "</div>";
         }
