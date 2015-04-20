@@ -60,6 +60,7 @@ public class GameSetupResponder implements Responder {
                 .build();
         CurrentGame.getInstance().setState(state);
         CurrentGame.getInstance().setGame(game);
+        CurrentGame.getInstance().setRules(rules);
         return this;
     }
 }

@@ -8,6 +8,7 @@ import tictactoe.gamestate.GameState;
 import tttjava.CurrentGame;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class GameResponder implements Responder {
@@ -81,6 +82,7 @@ public class GameResponder implements Responder {
             }
             html += "</div>";
         }
+        html += "<a href=\"new_game\">Restart Game</a>";
         html += "</body>\n" +
                 "</html>\n";
         return html;
@@ -98,6 +100,9 @@ public class GameResponder implements Responder {
 
     @Override
     public List<String> additionalHeaders() {
+        if (CurrentGame.getInstance().getRules().gameOver()) {
+            return Arrays.asList("Refresh: 0; url=/game_over");
+        }
         return new ArrayList<>();
     }
 

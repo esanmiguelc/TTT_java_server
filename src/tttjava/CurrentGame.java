@@ -2,12 +2,14 @@ package tttjava;
 
 import tictactoe.games.TicTacToeGame;
 import tictactoe.gamestate.GameState;
+import tictactoe.rules.Rules;
 
 public class CurrentGame {
 
     private static CurrentGame currentGame = new CurrentGame();
     private TicTacToeGame game;
     private GameState state;
+    private Rules rules;
 
     public static CurrentGame getInstance() {
         return currentGame;
@@ -31,5 +33,13 @@ public class CurrentGame {
 
     public GameState getState() {
         return state;
+    }
+
+    public Rules getRules() {
+        return rules;
+    }
+
+    public void setRules(Rules rules) {
+        this.rules = rules;
     }
 }
