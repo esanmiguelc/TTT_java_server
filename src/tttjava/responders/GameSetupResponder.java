@@ -4,16 +4,15 @@ import javaserver.Requests.Request;
 import javaserver.Responses.Responders.Responder;
 import javaserver.Routes.Route;
 import tictactoe.boards.TicTacToeBoard;
-import tictactoe.games.*;
+import tictactoe.games.TicTacToeGame;
+import tictactoe.games.TicTacToeGameBuilder;
 import tictactoe.gamestate.GameState;
-import tictactoe.gamestate.State;
 import tictactoe.participants.Participant;
 import tictactoe.participants.ParticipantFactory;
 import tictactoe.rules.TicTacToeRules;
 import tttjava.CurrentGame;
 import tttjava.WebUI;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
