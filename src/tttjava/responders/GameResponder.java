@@ -9,6 +9,7 @@ import tttjava.CurrentGame;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class GameResponder implements Responder {
@@ -18,53 +19,7 @@ public class GameResponder implements Responder {
         String html = "<html>\n" +
                 "  <head>\n" +
                 "    <link href=\"http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css\" rel=\"stylesheet\">\n" +
-                "    <style>\n" +
-                "      .slot {\n" +
-                "        height: 200px;\n" +
-                "      }\n" +
-                "      h1 {\n" +
-                "        padding-bottom: 40px;\n" +
-                "      }\n" +
-                "      .slot-0 {\n" +
-                "        border-right: 3px solid #f0f0f0;\n" +
-                "        border-bottom: 3px solid #f0f0f0;\n" +
-                "      }\n" +
-                "      .slot-1 {\n" +
-                "        border-right: 3px solid #f0f0f0;\n" +
-                "        border-bottom: 3px solid #f0f0f0;\n" +
-                "      }\n" +
-                "      .slot-2 {\n" +
-                "        border-bottom: 3px solid #f0f0f0;\n" +
-                "      }\n" +
-                "      .slot-3 {\n" +
-                "        border-right: 3px solid #f0f0f0;\n" +
-                "        border-bottom: 2px solid #f0f0f0;\n" +
-                "      }\n" +
-                "      .slot-4 {\n" +
-                "        border-right: 3px solid #f0f0f0;\n" +
-                "        border-bottom: 2px solid #f0f0f0;\n" +
-                "      }\n" +
-                "      .slot-5 {\n" +
-                "        border-bottom: 3px solid #f0f0f0;\n" +
-                "      }\n" +
-                "      .slot-6 {\n" +
-                "        border-right: 3px solid #f0f0f0;\n" +
-                "      }\n" +
-                "      .slot-7 {\n" +
-                "        border-right: 3px solid #f0f0f0;\n" +
-                "      }\n" +
-                "      button {\n" +
-                "        width:100%;\n" +
-                "        height:100%;\n" +
-                "        border:none;\n" +
-                "        background-color:white;\n" +
-                "      }" +
-                "      span {\n" +
-                "        font-size: 130px;\n" +
-                "        display:block;\n" +
-                "        text-align: center;\n" +
-                "      }\n" +
-                "    </style>\n" +
+                    "<link href=\"game.css\" rel=\"stylesheet\">" +
                 "  </head>\n" +
                 "  <body class=\"container\">\n" +
                 "    <h1 class=\"text-center\">Welcome To a game of TicTacToe</h1>\n";
@@ -72,7 +27,7 @@ public class GameResponder implements Responder {
         for (int position = 0; position < 9; position++) {
             html += "<div class=\"col-xs-4 slot slot-" + position + "\">\n";
             if (state.positionAvailable(position)) {
-                html += "<form action=\"/make_move\" method=\"POST\">\n" +
+                html += "<form action=\"/\" method=\"POST\">\n" +
                         "    <input type=\"hidden\" name=\"move\" value=\"" + position + "\">\n" +
                         "    <button type=\"submit\"></button>\n" +
                         "</form>";
@@ -101,7 +56,7 @@ public class GameResponder implements Responder {
     @Override
     public List<String> additionalHeaders() {
         if (CurrentGame.getInstance().getRules().gameOver()) {
-            return Arrays.asList("Refresh: 0; url=/game_over");
+            return Collections.singletonList("Refresh: 0; url=/game_over");
         }
         return new ArrayList<>();
     }
