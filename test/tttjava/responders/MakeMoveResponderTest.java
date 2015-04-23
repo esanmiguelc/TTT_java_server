@@ -1,4 +1,4 @@
-package tttjava;
+package tttjava.responders;
 
 import javaserver.Requests.HttpRequest;
 import javaserver.Requests.HttpRequestParser;
@@ -6,6 +6,7 @@ import javaserver.Responses.Responders.Responder;
 import javaserver.Routes.Route;
 import org.junit.Before;
 import org.junit.Test;
+import tttjava.CurrentGame;
 import tttjava.responders.GameSetupResponder;
 import tttjava.responders.MakeMoveResponder;
 

@@ -1,4 +1,4 @@
-package tttjava;
+package tttjava.responders;
 
 import javaserver.Requests.HttpRequest;
 import javaserver.Requests.HttpRequestParser;
@@ -15,6 +15,7 @@ import tictactoe.participants.computer.ImpossibleComputer;
 import tictactoe.participants.human.HumanParticipant;
 import tictactoe.rules.TicTacToeRules;
 import tictactoe.ui.CommandLineUI;
+import tttjava.CurrentGame;
 import tttjava.responders.GameSetupResponder;
 
 import java.util.HashMap;
