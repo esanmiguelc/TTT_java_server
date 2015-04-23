@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameOverResponder implements Responder {
+
+    private String result;
+
     @Override
     public String contentBody() {
         String html = "<html>\n" +
@@ -16,12 +19,12 @@ public class GameOverResponder implements Responder {
                 "    <link href=\"http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css\" rel=\"stylesheet\">\n" +
                 "</head>";
         html += "<body class=\"container\">";
-        if (CurrentGame.getInstance().getRules().isThereWinner()) {
-            html += "<h1 class=\"text-center\">Game Over!</h1> <h2 class=\"text-center\">The results are in: " +
-                    CurrentGame.getInstance().getRules().getWinner().getMark() +
-                    " Wins! </h2>";
-        } else {
+        if (result.equals("tie")) {
             html += "<h1 class=\"text-center\">Game Over!</h1><h2 class=\"text-center\">It's a tie!</h2>";
+        } else {
+            html += "<h1 class=\"text-center\">Game Over!</h1> <h2 class=\"text-center\">The results are in: " +
+                    result +
+                    " Wins! </h2>";
         }
         html += "<a class=\"center-block text-center\" href=\"/new_game\">click here to start a new game</a>";
         html += "</body>" +
@@ -46,6 +49,7 @@ public class GameOverResponder implements Responder {
 
     @Override
     public Responder execute(Route route, Request request) {
+        this.result = request.getParams().get("result");
         return this;
     }
 }

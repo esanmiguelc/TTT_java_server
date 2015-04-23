@@ -14,6 +14,7 @@ public class WebGame {
     private Participant firstParticipant;
     private Participant secondParticipant;
     private GameState gameState;
+    private String move;
 
     public void addMove(String move) {
         playedMoves += move;
@@ -58,6 +59,14 @@ public class WebGame {
                 .forEach((position) -> gameState.placeNextMove(Integer.valueOf(position)));
     }
 
+    public String getResultMark() {
+        TicTacToeRules rules = new TicTacToeRules(board);
+        if (rules.checkTie()) {
+            return "tie";
+        }
+        return rules.getWinner().getMark();
+    }
+
     public boolean isNew() {
         return playedMoves.equals(" ");
     }
@@ -68,5 +77,9 @@ public class WebGame {
 
     public Participant getParticipantAtPosition(int position) {
         return gameState.getParticipantAtPosition(position);
+    }
+
+    public void setMove(String move) {
+        this.move = move;
     }
 }
