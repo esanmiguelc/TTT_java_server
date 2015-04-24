@@ -39,8 +39,8 @@ public class GameResponder implements Responder {
             if (webGame.positionAvailable(position)) {
                 html += "<form action=\"/game\" method=\"GET\">\n" +
                         "    <input type=\"hidden\" name=\"state\" value=\"" + webGame.playedMoves() + position + "\">" +
-                        "    <input type=\"hidden\" name=\"firstPlayer\" value=\"1\">" +
-                        "    <input type=\"hidden\" name=\"secondPlayer\" value=\"1\">" +
+                        "    <input type=\"hidden\" name=\"firstPlayer\" value=\"" + webGame.getFirstParticipantType() + "\">" +
+                        "    <input type=\"hidden\" name=\"secondPlayer\" value=\"" + webGame.getSecondParticipantType() + "\">" +
                         "    <button type=\"submit\"></button>\n" +
                         "</form>";
             } else {
