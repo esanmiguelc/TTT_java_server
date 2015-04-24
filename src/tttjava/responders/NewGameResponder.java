@@ -29,12 +29,14 @@ public class NewGameResponder implements Responder {
                                         "<label for=\"firstPlayer\">Select First Player:</label>" +
                                         "<select class=\"form-control\" id=\"firstPlayer\" name=\"firstPlayer\">" +
                                             "<option value=\"1\">Human</option>" +
+                                            "<option value=\"2\">Impossible Computer</option>" +
                                         "</select>" +
                                     "</div>" +
                                     "<div class=\"form-group\">" +
                                         "<label for=\"secondPlayer\">Select Second Player:</label>" +
                                         "<select class=\"form-control\" name=\"secondPlayer\" id=\"secondPlayer\">" +
                                             "<option value=\"1\">Human</option>" +
+                                            "<option value=\"2\">Impossible Computer</option>" +
                                         "</select>" +
                                     "</div>" +
                                 "<button type=\"submit\" class=\"btn btn-success\">Start game!</button>" +

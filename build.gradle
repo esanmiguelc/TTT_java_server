@@ -28,7 +28,6 @@ sourceSets {
             srcDir 'test'
         }
     }
-
 }
 
 jar {
@@ -40,4 +39,5 @@ jar {
         )
     }
 }
+
 

@@ -11,8 +11,7 @@ public class TicTacToeRoutes {
 
     public static void config() {
         RoutesRegistrar.getInstance().registerRoute(new Route("/", false, false, new LinkedHashMap<String, Responder>() {{
-            put("GET", new SomeGameResponder());
-            put("POST", new SomeGameResponder());
+            put("GET", new NewGameResponder());
         }}));
 
         RoutesRegistrar.getInstance().registerRoute(new Route("/new_game", false, false, new LinkedHashMap<String, Responder>() {{

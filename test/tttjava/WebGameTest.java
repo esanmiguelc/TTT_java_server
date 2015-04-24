@@ -40,7 +40,7 @@ public class WebGameTest {
         }});
         WebGame game = new WebGame();
         game.addMove(request.getParams().get("move"));
-        assertThat(game.playedMoves(), is(equalTo("1")));
+        assertThat(game.playedMoves(), is(equalTo(" 1")));
     }
 
     @Test
@@ -50,7 +50,7 @@ public class WebGameTest {
         }});
         WebGame game = new WebGame();
         game.addMove(request.getParams().get("move"));
-        assertThat(game.playedMoves(), is(equalTo("2")));
+        assertThat(game.playedMoves(), is(equalTo(" 2")));
     }
 
     @Test

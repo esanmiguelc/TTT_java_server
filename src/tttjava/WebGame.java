@@ -13,17 +13,18 @@ public class WebGame {
     private String playedMoves = " ";
     private Participant firstParticipant;
     private Participant secondParticipant;
-    private GameState gameState;
-    private String move;
+    private GameState gameState = new GameState(board);
+    private TicTacToeRules rules = new TicTacToeRules(board);
+    private Integer participantType;
+    private Integer secondParticipantType;
 
     public void addMove(String move) {
         playedMoves += move;
     }
 
     public String playedMoves() {
-        String s = playedMoves.replaceAll("[^0-9]", " ");
-        System.out.println(s);
-        return (playedMoves.equals(" ")) ? " " : s;
+        String noWhiteSpace = playedMoves.replaceAll("[^0-9]", "");
+        return (playedMoves.equals(" ")) ? " " : noWhiteSpace;
     }
 
     public void setPlayedMoves(String playedMoves) {
@@ -34,12 +35,14 @@ public class WebGame {
         return firstParticipant;
     }
 
-    public void setFirstParticipant(String firstParticipantType) {
-        this.firstParticipant = new ParticipantFactory(Integer.valueOf(firstParticipantType), null, null, null, "X", null).getPlayer();
+    public void setFirstParticipant(String firstParticipant) {
+        this.participantType = Integer.valueOf(firstParticipant);
+        this.firstParticipant = new ParticipantFactory(participantType, null, board, rules, "X", gameState).getPlayer();
     }
 
-    public void setSecondParticipant(String secondParticipantType) {
-        this.secondParticipant = new ParticipantFactory(Integer.valueOf(secondParticipantType), null, null, null, "O", null).getPlayer();
+    public void setSecondParticipant(String secondParticipant) {
+        this.secondParticipantType = Integer.valueOf(secondParticipant);
+        this.secondParticipant = new ParticipantFactory(secondParticipantType, null, board, rules, "O", gameState).getPlayer();
     }
 
     public Participant secondParticipant() {
@@ -51,12 +54,16 @@ public class WebGame {
     }
 
     public void makeState() {
-        this.gameState = new GameState(board);
         gameState.setFirstParticipant(firstParticipant);
         gameState.setSecondParticipant(secondParticipant);
         Arrays.asList(playedMoves().split("")).stream()
                 .filter((stringPosition) -> stringPosition.matches("[0-9]"))
                 .forEach((position) -> gameState.placeNextMove(Integer.valueOf(position)));
+        if (gameState.currentParticipant().getType().equals("Computer") && !rules.gameOver()) {
+            int computerMove = gameState.currentParticipant().getMove();
+            this.playedMoves += String.valueOf(computerMove);
+            gameState.placeNextMove(computerMove);
+        }
     }
 
     public String getResultMark() {
@@ -79,7 +86,11 @@ public class WebGame {
         return gameState.getParticipantAtPosition(position);
     }
 
-    public void setMove(String move) {
-        this.move = move;
+    public Integer getSecondParticipantType() {
+        return secondParticipantType;
+    }
+
+    public Integer getFirstParticipantType() {
+        return participantType;
     }
 }
