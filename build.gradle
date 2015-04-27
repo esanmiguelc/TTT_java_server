@@ -35,7 +35,7 @@ jar {
         attributes ('Implementation-Title': "TicTacToeWeb",
                 'Implementation-Version': version,
                 'Main-Class': 'tttjava.TTTJava',
-                'Class-Path': System.getProperty("user.dir") + '/lib/java-server-1.0.jar', System.getProperty("user.dir") + 'lib/tictactoe-1.0.jar'
+                'Class-Path': System.getProperty("user.dir") + '/lib/java-server-1.0.jar' + ' ' + System.getProperty("user.dir") + '/lib/tictactoe-1.0.jar'
         )
     }
 }
