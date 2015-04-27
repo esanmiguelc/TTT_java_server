@@ -59,7 +59,7 @@ public class WebGame {
         Arrays.asList(playedMoves().split("")).stream()
                 .filter((stringPosition) -> stringPosition.matches("[0-9]"))
                 .forEach((position) -> gameState.placeNextMove(Integer.valueOf(position)));
-        if (gameState.currentParticipant().getType().equals("Computer") && !rules.gameOver()) {
+        while (gameState.currentParticipant().getType().equals("Computer") && !rules.gameOver()) {
             int computerMove = gameState.currentParticipant().getMove();
             this.playedMoves += String.valueOf(computerMove);
             gameState.placeNextMove(computerMove);
