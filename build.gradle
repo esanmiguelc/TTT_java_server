@@ -30,6 +30,9 @@ sourceSets {
     }
 }
 
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.2.1'
+}
 jar {
     manifest {
         attributes ('Implementation-Title': "TicTacToeWeb",
