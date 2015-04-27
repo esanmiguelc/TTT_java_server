@@ -10,5 +10,7 @@ to access the jar you type in the following command:
 `java -jar build/libs/tttjava-1.0.jar`
 
 The server supports the following flags:
+
 `-p` specifies the port to listen in, default: 5000
+
 `-d` specifies the servers' public directory
