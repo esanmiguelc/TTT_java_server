@@ -3,6 +3,7 @@ package tttjava;
 import javaserver.Requests.Logger;
 import javaserver.Runner.ServerRunner;
 import javaserver.config.ServerConfig;
+import tttjava.TicTacToeRoutes;
 
 class TTTJava {
     public static void main(String[] args) throws Exception {

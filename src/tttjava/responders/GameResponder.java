@@ -3,14 +3,10 @@ package tttjava.responders;
 import javaserver.Requests.Request;
 import javaserver.Responses.Responders.Responder;
 import javaserver.Routes.Route;
-import org.omg.CORBA.Current;
-import tictactoe.gamestate.GameState;
-import tttjava.CurrentGame;
 import tttjava.WebGame;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class GameResponder implements Responder {
@@ -23,7 +19,7 @@ public class GameResponder implements Responder {
         String html = "<html>" +
                 "  <head>" +
                 "    <link href=\"http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css\" rel=\"stylesheet\">" +
-                    "<link href=\"game.css\" rel=\"stylesheet\">" +
+                    "<link href=\"https://www.googledrive.com/host/0B60Vm8CDKX1xVVdIWmJDWFRGWjA\" rel=\"stylesheet\">" +
                 "  </head>" +
                 "  <body class=\"container\">" +
                 "    <h1 class=\"text-center\">Welcome To a game of TicTacToe</h1>";

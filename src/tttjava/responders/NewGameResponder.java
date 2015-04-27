@@ -24,7 +24,6 @@ public class NewGameResponder implements Responder {
                             "<div class=\"col-lg-4 col-lg-offset-4\">" +
                                 "<form action=\"/game\" method=\"GET\">\n" +
                                     "<input type=\"hidden\" name=\"state\" value=\" \"></input>" +
-                                    "<input type=\"hidden\" name=\"move\" value=\" \"></input>" +
                                     "<div class=\"form-group\">" +
                                         "<label for=\"firstPlayer\">Select First Player:</label>" +
                                         "<select class=\"form-control\" id=\"firstPlayer\" name=\"firstPlayer\">" +
