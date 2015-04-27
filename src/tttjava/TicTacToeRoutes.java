@@ -3,7 +3,9 @@ package tttjava;
 import javaserver.Responses.Responders.Responder;
 import javaserver.Routes.Route;
 import javaserver.Routes.RoutesRegistrar;
-import tttjava.responders.*;
+import tttjava.responders.GameOverResponder;
+import tttjava.responders.GameResponder;
+import tttjava.responders.NewGameResponder;
 
 import java.util.LinkedHashMap;
 

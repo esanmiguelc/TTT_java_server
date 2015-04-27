@@ -3,7 +3,6 @@ package tttjava.responders;
 import javaserver.Requests.Request;
 import javaserver.Responses.Responders.Responder;
 import javaserver.Routes.Route;
-import tttjava.CurrentGame;
 
 import java.util.ArrayList;
 import java.util.List;
